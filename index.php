@@ -12,5 +12,13 @@ $atendimentos = array(
 );
 
 foreach ($atendimentos as $key) {
-    echo $key['num_senha'].'<br>';
+    echo $key['num_senha'].' - ';
+}
+echo 'Ordenando <br>';
+usort($atendimentos, function($a, $b) {
+    return ($b['dt_cheg'] < $a['dt_cheg']) ? 1 : -1;
+});
+
+foreach ($atendimentos as $key) {
+    echo $key['num_senha'].' - ';
 }
